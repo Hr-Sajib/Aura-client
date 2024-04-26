@@ -51,7 +51,7 @@ const Banner = () => {
             </div>
             <div className="flex gap-3">
                 <img className="w-[300px] rounded-xl " src="https://i.ibb.co/JdLQYgL/flowerbanner.jpg" alt="" />
-                <img className="w-[400px] rounded-xl " src="https://i.ibb.co/bRJYTMB/Screenshot-2024-04-26-at-11-24-33-AM.png" alt="" />
+                <img className="w-[400px] rounded-xl animate__animated animate__fadeInRight" src="https://i.ibb.co/bRJYTMB/Screenshot-2024-04-26-at-11-24-33-AM.png" alt="" />
             </div>
         </div>
     );

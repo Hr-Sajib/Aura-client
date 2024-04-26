@@ -12,6 +12,7 @@ import 'animate.css';
 import {
   signInWithPopup,
   GithubAuthProvider,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
@@ -92,6 +93,23 @@ const SignUp = () => {
       });
   };
 
+  const handleSignIpWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        console.log(res.user);
+        toast("Signed in successfully!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+
+
+
+  
   return (
     <div>
       <Helmet>
@@ -158,6 +176,7 @@ const SignUp = () => {
           <div >
             <p className="text-center mt-5">Or, sign in with</p>
             <div className='flex gap-3 mt-1 justify-center'>
+            <div onClick={handleSignIpWithGoogle} className='flex items-center gap-1 bg-white rounded-lg p-2'><FaGoogle />Google</div>
             <div onClick={handleSignIpWithGithub} className='flex items-center gap-1 bg-white rounded-lg p-2'><FaGithub />Github</div>
           </div>
           </div>

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import auth from '../firebase/firebase.config'
 import { useContext } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext } from "react";
+import { useEffect } from "react";
+import { LuCurrency } from "react-icons/lu";
 
 
 export const AuthContext = createContext(null);
@@ -24,13 +26,29 @@ const Authprovider = ({children}) => {
     }
 
 
+    // retain user info
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, currentUser=>{
+            setUser(currentUser);
+            console.log(currentUser);
+        })
+        return()=>{
+            unsubscribe();
+        }
+    },[])
+
+    //log out
+    const logOut =()=>{
+        return signOut(auth);
+    }
 
 
 
     const userInfo = {
         user,
         createUser,
-        setUser
+        logOut,
+        loginUser
 
     }
 
