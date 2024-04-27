@@ -49,7 +49,7 @@ const Myart =({art, setArts, arts})=>{
             }).then((result) => {
             if (result.isConfirmed) {
             
-                fetch(`http://localhost:5500/getMyArts/delete/${id}`,{
+                fetch(`http://localhost:5500/delete/${id}`,{
                     method:"DELETE"
                 })
                 .then(res=>res.json())

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from './Authprovider';
 import auth from '../firebase/firebase.config';
 import 'animate.css';
@@ -27,6 +27,7 @@ const Navbar = () => {
         });
     }
 
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -40,7 +41,7 @@ const Navbar = () => {
                         {navlinks}
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-3xl">Aura</a>
+                    <div onClick={()=>navigate('/')}><a className="btn btn-ghost text-3xl">Aura</a></div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

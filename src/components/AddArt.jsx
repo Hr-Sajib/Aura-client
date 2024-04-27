@@ -2,6 +2,9 @@ import React from 'react';
 import 'animate.css';
 import { useContext } from 'react';
 import { AuthContext } from './Authprovider';
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -41,6 +44,7 @@ const AddArt = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            Swal.fire("Information Added");
         })
 
 
@@ -48,6 +52,11 @@ const AddArt = () => {
     }
 
 
+    const navigate = useNavigate();
+
+    const handleBack=()=>{
+        navigate(-1);
+    }
 
     return (
         <div className='bg-gray-100 h-[700px] flex flex-col justify-center px-24 animate__animated animate__fadeInUp'>
@@ -70,6 +79,9 @@ const AddArt = () => {
 
                 <input type="submit" value="Add Item" className='mt-5 bg-gray-600 hover:bg-black text-white px-5 py-2 rounded-xl' />
             </form>
+            <div className='flex justify-end'>
+                <button onClick={handleBack} className='bg-black hover:bg-gray-700 rounded-xl px-10 py-2 text-gray-200'>Back</button>
+            </div>
         </div>
     );
 };

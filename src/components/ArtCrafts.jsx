@@ -9,7 +9,8 @@ const ArtCrafts = () => {
 
 
     const allarts = useLoaderData();
-    console.log(allarts);
+    
+    
     return (
         <div>
             <div className="overflow-x-auto mr-20 ml-28 mt-5 animate__animated animate__fadeInUp">
