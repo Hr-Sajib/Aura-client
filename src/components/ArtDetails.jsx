@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { PiStarFill } from "react-icons/pi";
+import 'animate.css';
 
 
 const ArtDetails = () => {
@@ -8,11 +9,11 @@ const ArtDetails = () => {
 
 
     return (
-        <div className="bg-gray-100 h-[750px] py-10 px-20 flex items-center gap-10">
-            <div className=" ">
+        <div className="bg-gray-100 h-[750px] py-10 px-20 flex items-center gap-10 animate__animated animate__fadeInUp">
+            <div className="animate__animated animate__fadeInLeft">
                 <img className="h-[600px] rounded-xl" src={art.imageurl} alt="" />
             </div>
-            <div className=" h-full w-full">
+            <div className=" h-full w-full animate__animated animate__backInRight">
                 <p className='dancing-script-font text-4xl my-2'>{art.name}</p>
                 <p className="mt-1">{art.description}</p>
                 <p className="bg-blue-200 w-48 mt-1 text-center rounded-full text-blue-900 ">{art.category}</p>

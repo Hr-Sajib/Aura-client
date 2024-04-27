@@ -23,9 +23,9 @@ const Banner = () => {
     return (
         <div className="flex gap-3 h-[770px] mx-16 justify-end ">
             <div>
-                <div className="bg-gray-200 h-[350px] w-[1030px] rounded-xl flex gap-10 animate__animated animate__fadeInLeft">
+                <div className="bg-gray-300 h-[350px] w-[1030px] rounded-xl flex gap-10 animate__animated animate__fadeInLeft">
                     <div>
-                        <p className=" text-[120px]"><b className="text-[200px]">T</b>he World of</p>
+                        <p className=" text-[120px] text-white"><b className="text-[200px]">T</b>he World of</p>
                         <p className=" text-right text-3xl relative bottom-10">Colors and Imaginations</p>
                     </div>
                     <img className="h-[300px] -rotate-90 relative top-10 left-10 animate__animated animate__zoomIn" src="https://i.ibb.co/KXdtQch/1714125736956.png" alt="" />

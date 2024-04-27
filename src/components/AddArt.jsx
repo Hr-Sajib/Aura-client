@@ -50,7 +50,7 @@ const AddArt = () => {
 
 
     return (
-        <div className='bg-gray-100 h-[700px] flex flex-col justify-center px-24'>
+        <div className='bg-gray-100 h-[700px] flex flex-col justify-center px-24 animate__animated animate__fadeInUp'>
             <form onSubmit={handleSubmit}>
                 <div className='flex gap-24 '>
                     <div className='w-[600px] animate__animated animate__fadeInLeft'>

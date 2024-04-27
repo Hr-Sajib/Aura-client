@@ -2,19 +2,21 @@ import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from './Authprovider';
 import auth from '../firebase/firebase.config';
+import 'animate.css';
+
 
 
 const Navbar = () => {
 
     const {user, logOut} = useContext(AuthContext);
-    console.log(user);
 
     const navlinks =<>
         <li className='mr-1'><NavLink to="/">Home</NavLink></li>
         <li className='mr-1'><NavLink to="/art&crafts">Art & Crafts</NavLink></li>
-        <li className='mr-1'><NavLink to="addarts">Add Arts</NavLink></li>
-        <li className=''><NavLink to="/myarts">My Arts</NavLink></li>
+        <li className='mr-1'><NavLink to="/addarts">Add Arts</NavLink></li>
+        <li className=''><NavLink to={`/myarts/${user?.email}`}>My Arts</NavLink></li>
     </>
+
 
     const handleLogOut=()=>{
         logOut(auth)
@@ -28,7 +30,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100 pt-10 pb-5 px-16">
+            <div className="navbar bg-base-100 pt-10 pb-5 px-16 animate__animated animate__fadeInDown">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -35,6 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/art&crafts',
+        loader: ()=>fetch('http://localhost:5500/getarts'),
         element: <ArtCrafts/>
       },
       {
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
         element: <AddArt/>
       },
       {
-        path:'/myarts',
+        path:'/myarts/:email',
+        loader:({params})=> fetch(`http://localhost:5500/getMyArts/${params.email}`),
         element: <Myarts/>
       },
       {
@@ -55,6 +57,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/art/:id',
+        loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
+        element: <ArtDetails/>
+      },
+      {
+        path:'/art&crafts/art/:id',
         loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
         element: <ArtDetails/>
       },
