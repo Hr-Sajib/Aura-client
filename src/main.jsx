@@ -16,6 +16,7 @@ import Authprovider from './components/Authprovider.jsx';
 import { HelmetProvider } from "react-helmet-async";
 import LogIn from './components/LogIn.jsx';
 import ArtDetails from './components/ArtDetails.jsx';
+import UpdatePage from './components/UpdatePage.jsx';
 
 
 
@@ -42,11 +43,24 @@ const router = createBrowserRouter([
         path:'/addarts',
         element: <AddArt/>
       },
+
+
+
+
       {
         path:'/myarts/:email',
         loader:({params})=> fetch(`http://localhost:5500/getMyArts/${params.email}`),
         element: <Myarts/>
       },
+      {
+        path:'/myarts/:email/update/:id',
+        loader:({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
+        element: <UpdatePage/>
+      },
+
+
+
+
       {
         path:'/signup',
         element: <SignUp/>
@@ -55,6 +69,10 @@ const router = createBrowserRouter([
         path:'/login',
         element: <LogIn/>
       },
+
+
+
+
       {
         path:'/art/:id',
         loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
@@ -65,6 +83,7 @@ const router = createBrowserRouter([
         loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
         element: <ArtDetails/>
       },
+      
     ]
   },
 ]);
