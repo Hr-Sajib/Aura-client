@@ -116,7 +116,7 @@ const SignUp = () => {
         <title>Register</title>
       </Helmet>
       <ToastContainer />
-      <div className="lg:w-[600px] flex flex-col items-center mb-2 lg:p-5 p-2  pt-10 pb-8 mt-3 rounded-xl bg-blue-100 mx-2 lg:mx-auto animate__animated animate__zoomIn">
+      <div className="lg:w-[600px] flex flex-col items-center mb-2 lg:p-5 p-2  pt-10 pb-8 mt-3 rounded-xl bg-gray-200 mx-2 lg:mx-auto animate__animated animate__zoomIn">
         <form onSubmit={handleRegister} action="">
           <input
             className="rounded-lg p-2 lg:w-[500px] w-[320px] "

@@ -15,6 +15,7 @@ import SignUp from './components/SignUp.jsx';
 import Authprovider from './components/Authprovider.jsx';
 import { HelmetProvider } from "react-helmet-async";
 import LogIn from './components/LogIn.jsx';
+import ArtDetails from './components/ArtDetails.jsx';
 
 
 
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element: <Home/>
+        element: <Home/>,
+        loader: ()=>fetch('http://localhost:5500/getarts')
       },
       {
         path:'/art&crafts',
@@ -50,6 +52,11 @@ const router = createBrowserRouter([
       {
         path:'/login',
         element: <LogIn/>
+      },
+      {
+        path:'/art/:id',
+        loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
+        element: <ArtDetails/>
       },
     ]
   },

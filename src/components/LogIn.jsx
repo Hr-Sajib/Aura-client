@@ -91,7 +91,7 @@ const LogIn = () => {
       </Helmet>
         <ToastContainer/>
         <div>
-        <div className='lg:w-[600px] flex flex-col items-center mb-2 pt-10 lg:p-5 p-3 pb-8 mx-2 lg:mt-20 rounded-xl bg-blue-200 lg:mx-auto animate__animated animate__zoomIn'>
+        <div className='lg:w-[600px] flex flex-col items-center mb-2 pt-10 lg:p-5 p-3 pb-8 mx-2 lg:mt-20 rounded-xl bg-gray-200 lg:mx-auto animate__animated animate__zoomIn'>
           <form onSubmit={handleLogin} action="">
             <input className='rounded-lg p-2 lg:w-[500px] w-[320px]' type="email" name='email' required placeholder='Email' /> <br /> <br />
             <input className='rounded-lg p-2 lg:w-[500px] w-[320px]' 
