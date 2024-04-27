@@ -17,6 +17,7 @@ import { HelmetProvider } from "react-helmet-async";
 import LogIn from './components/LogIn.jsx';
 import ArtDetails from './components/ArtDetails.jsx';
 import UpdatePage from './components/UpdatePage.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/addarts',
-        element: <AddArt/>
+        element: <PrivateRoute><AddArt/></PrivateRoute>
       },
 
 
@@ -50,12 +51,12 @@ const router = createBrowserRouter([
       {
         path:'/myarts/:email',
         loader:({params})=> fetch(`http://localhost:5500/getMyArts/${params.email}`),
-        element: <Myarts/>
+        element:  <PrivateRoute><Myarts/></PrivateRoute>
       },
       {
         path:'/myarts/:email/update/:id',
         loader:({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
-        element: <UpdatePage/>
+        element: <PrivateRoute><UpdatePage/></PrivateRoute>
       },
 
 
