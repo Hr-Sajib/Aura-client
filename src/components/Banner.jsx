@@ -21,37 +21,39 @@ const Banner = () => {
 
       };
     return (
-        <div className="flex gap-3 h-[770px] mx-16 justify-end">
+        <div className="lg:flex gap-3 lg:h-[770px] lg:mx-16 mx-2 justify-end">
             <div>
-                <div className="bg-gray-300 h-[350px] w-[1030px] rounded-xl flex gap-10 animate__animated animate__fadeInLeft">
-                    <div>
-                        <p className=" text-[120px] text-white"><b className="text-[200px]">T</b>he World of</p>
-                        <p className=" text-right text-3xl relative bottom-10">Colors and Imaginations</p>
+
+                <div className="bg-gray-300 lg:h-[350px] h-[200px] lg:w-[1030px] rounded-xl flex gap-10 animate__animated animate__fadeInLeft">
+                    <div className="lg:flex">
+                        <div>
+                            <p className=" lg:text-[120px] text-5xl text-white"><b className="lg:text-[200px]">T</b>he World of</p>
+                            <p className=" text-right lg:text-3xl relative ">Colors and Imaginations</p>
+                        </div>
+                        <img className="h-[150px] lg:h-[300px] -rotate-90 relative lg:top-10  bottom-5 lg:left-10 left-20 animate__animated animate__zoomIn" src="https://i.ibb.co/KXdtQch/1714125736956.png" alt="" />
                     </div>
-                    <img className="h-[300px] -rotate-90 relative top-10 left-10 animate__animated animate__zoomIn" src="https://i.ibb.co/KXdtQch/1714125736956.png" alt="" />
                 </div>
-                <div className="flex justify-between">
-                    <div className='w-[600px] h-[403px] mt-3 border rounded-xl'>
-                        <div className="slider-container rounded-xl h-[403px] p-3 border border-black flex ">
+
+                <div className="lg:flex justify-between">
+                    <div className='lg:w-[600px] lg:h-[403px] h-[200px] mt-3 lg:border rounded-xl'>
+                        <div className="slider-container rounded-xl lg:h-[403px] h-[230px] p-3 border border-black flex ">
                             <Slider {...sliderSettings}>
                                 
-                                <div><img className=" h-[370px]  rounded-xl" src="https://i.ibb.co/hLW1TG0/Frame-2.png" alt="" /></div>
-                                <div><img className=" h-[370px]  rounded-xl" src="https://i.ibb.co/r4xrwX4/Frame-1.png" alt="" /></div>
-                                <div><img className=" h-[370px]  rounded-xl" src="https://i.ibb.co/HDkXNLH/Frame-3.png" alt="" /></div>
+                                <div><img className=" lg:h-[370px] lg:w-full w-[320px]  rounded-xl" src="https://i.ibb.co/hLW1TG0/Frame-2.png" alt="" /></div>
+                                <div><img className=" lg:h-[370px] lg:w-full w-[320px]  rounded-xl" src="https://i.ibb.co/r4xrwX4/Frame-1.png" alt="" /></div>
+                                <div><img className=" lg:h-[370px] lg:w-full w-[320px]  rounded-xl" src="https://i.ibb.co/HDkXNLH/Frame-3.png" alt="" /></div>
                             
-                            </Slider> 
-                            <p className=" relative right-[-15px] w-[200px] top-10">A<br/>E <br/>S T H E <br/>T <span className="bg-red-700 rounded-full text-white px-1">I</span> C</p>
-                        
+                            </Slider>                         
                         </div>
                         
                        
                     </div>
-                    <img className="w-[415px] h-[405px] rounded-xl mt-3 animate__animated animate__fadeInUp" src="https://i.ibb.co/1s4ycr4/Screenshot-2024-04-26-at-1-00-36-PM.png" alt="" />
+                    <img className="w-[415px] h-[405px] lg:flex hidden rounded-xl mt-3 animate__animated animate__fadeInUp" src="https://i.ibb.co/1s4ycr4/Screenshot-2024-04-26-at-1-00-36-PM.png" alt="" />
                 </div>
             </div>
             <div className="flex gap-3">
-                <img className="w-[300px] rounded-xl " src="https://i.ibb.co/JdLQYgL/flowerbanner.jpg" alt="" />
-                <img className="w-[400px] rounded-xl animate__animated animate__fadeInRight" src="https://i.ibb.co/bRJYTMB/Screenshot-2024-04-26-at-11-24-33-AM.png" alt="" />
+                <img className="w-[300px] lg:flex hidden rounded-xl " src="https://i.ibb.co/JdLQYgL/flowerbanner.jpg" alt="" />
+                <img className="w-[400px] lg:flex hidden rounded-xl animate__animated animate__fadeInRight" src="https://i.ibb.co/bRJYTMB/Screenshot-2024-04-26-at-11-24-33-AM.png" alt="" />
             </div>
         </div>
     );

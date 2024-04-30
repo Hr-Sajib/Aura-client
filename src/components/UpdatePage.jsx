@@ -29,7 +29,7 @@ const UpdatePage = () => {
     
         
         // send updates to server
-        fetch(`http://localhost:5500/update/${art._id}`,{
+        fetch(`https://aura-serverside.vercel.app/update/${art._id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'
@@ -54,10 +54,10 @@ const UpdatePage = () => {
 
     return (
         <div>
-            <div className='bg-gray-100 h-[760px] flex flex-col justify-center px-24 animate__animated animate__fadeInUp'>
+            <div className='bg-gray-100 lg:h-[760px] lg:flex flex-col justify-center lg:px-24 px-3 animate__animated animate__fadeInUp'>
             <form onSubmit={handleUpdate}>
-                <div className='flex gap-24'>
-                    <div className='w-[600px] animate__animated animate__fadeInLeft'>
+                <div className='lg:flex gap-24'>
+                    <div className='lg:w-[600px] animate__animated animate__fadeInLeft'>
                         <div className=''>
                             <label className='mt-3' htmlFor=""><b>Name</b></label>
                             <input defaultValue={art.name} type="text" name="name" placeholder='Name of Artwork' className='bg-gray-100 h-12 border-b-[1px] border-black w-full' /> <br /><br />
@@ -79,7 +79,7 @@ const UpdatePage = () => {
                             <input defaultValue={art.customization} type="text" name="customization" placeholder='Customization' className='bg-gray-100 h-12 border-b-[1px] border-black w-full' />
                         </div>
                     </div>
-                    <div className='w-[600px] animate__animated animate__fadeInRight'>
+                    <div className='lg:w-[600px] animate__animated animate__fadeInRight'>
                         <div>
                             <label htmlFor=""><b>Image Url</b></label>
                             <input    defaultValue={art.imageurl}   type="text" name="imageurl" placeholder='Image URL '   className='bg-gray-100 h-12 border-b-[1px] border-black w-full' /> <br /><br />

@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBztpMo2ESCB1mm1NJthZHtLadw8WFWMCY",
-  authDomain: "aura-art-gallary.firebaseapp.com",
-  projectId: "aura-art-gallary",
-  storageBucket: "aura-art-gallary.appspot.com",
-  messagingSenderId: "554184432415",
-  appId: "1:554184432415:web:7c28911973c45755cf2e2a"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

@@ -31,13 +31,13 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100 pt-10 pb-5 px-16 animate__animated animate__fadeInDown">
+            <div className="navbar bg-base-100 lg:pt-10 pb-5 lg:px-16 lg:mb-0 mb-40 animate__animated animate__fadeInDown">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52">
                         {navlinks}
                     </ul>
                     </div>
@@ -61,7 +61,13 @@ const Navbar = () => {
                         </div>}
                     </div>
                     { user ? <button onClick={handleLogOut} className="bg-black text-white px-3 py-2 rounded-lg">Logout</button> :
-                     <Link to="/login"><button className="bg-black text-white px-3 py-2 rounded-lg">Login</button></Link>}
+                     
+                     <div className='flex'>
+                        <Link to="/login"><button className="bg-black text-white px-3 py-2 rounded-lg mr-1">Login</button></Link>
+                        <Link to="/signup"><button className="bg-black text-white px-3 py-2 rounded-lg">Register</button></Link>
+                     </div>
+                    
+                    }
                 </div>
             </div>
         </div>

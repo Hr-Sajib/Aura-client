@@ -37,11 +37,11 @@ const router = createBrowserRouter([
         path:'/',
         element: <Home/>,
         errorElement:<ErrorPage/>,
-        loader: ()=>fetch('http://localhost:5500/getarts')
+        loader: ()=>fetch('https://aura-serverside.vercel.app/getarts')
       },
       {
         path:'/art&crafts',
-        loader: ()=>fetch('http://localhost:5500/getarts'),
+        loader: ()=>fetch('https://aura-serverside.vercel.app/getarts'),
         errorElement:<ErrorPage/>,
         element: <ArtCrafts/>
         
@@ -58,13 +58,13 @@ const router = createBrowserRouter([
       {
         path:'/myarts/:email',
         errorElement:<ErrorPage/>,
-        loader:({params})=> fetch(`http://localhost:5500/getMyArts/${params.email}`),
+        loader:({params})=> fetch(`https://aura-serverside.vercel.app/getMyArts/${params.email}`),
         element:  <PrivateRoute><Myarts/></PrivateRoute>
       },
       {
         path:'/myarts/:email/update/:id',
         errorElement:<ErrorPage/>,
-        loader:({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
+        loader:({params})=> fetch(`https://aura-serverside.vercel.app/getart/${params.id}`),
         element: <PrivateRoute><UpdatePage/></PrivateRoute>
       },
 
@@ -88,13 +88,13 @@ const router = createBrowserRouter([
       {
         path:'/art/:id',
         errorElement:<ErrorPage/>,
-        loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
+        loader: ({params})=> fetch(`https://aura-serverside.vercel.app/getart/${params.id}`),
         element: <ArtDetails/>
       },
       {
         path:'/art&crafts/art/:id',
         errorElement:<ErrorPage/>,
-        loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
+        loader: ({params})=> fetch(`https://aura-serverside.vercel.app/getart/${params.id}`),
         element: <ArtDetails/>
       },
 
@@ -102,9 +102,10 @@ const router = createBrowserRouter([
       {
         path:'/categoryItems/:categoryName',
         errorElement:<ErrorPage/>,
-        loader: ()=>fetch('http://localhost:5500/getarts'),
+        loader: ()=>fetch('https://aura-serverside.vercel.app/getarts'),
         element: <CategoryItems/>
       },
+
       
     ]
   },

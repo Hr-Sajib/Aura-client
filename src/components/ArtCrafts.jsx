@@ -14,7 +14,7 @@ const ArtCrafts = () => {
     
     return (
         <div>
-            <div className="overflow-x-auto mr-20 ml-28 mt-5 animate__animated animate__fadeInUp">
+            <div className="overflow-x-auto lg:mr-20 lg:ml-28 mt-5 animate__animated animate__fadeInUp">
                 <table className="table">
                     {/* head */}
                     <thead>

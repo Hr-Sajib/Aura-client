@@ -14,7 +14,7 @@ const Myarts = () => {
 
     
     return (
-        <div className='grid grid-cols-4 mx-20  items-center justify-center  p-3 gap-3'>
+        <div className='lg:grid grid-cols-4 lg:mx-20  items-center justify-center  p-3 gap-3'>
             {
                 arts.map(art =><Myart art={art} key={art._id} setArts={setArts} arts={arts}></Myart>)
             }
@@ -49,7 +49,7 @@ const Myart =({art, setArts, arts})=>{
             }).then((result) => {
             if (result.isConfirmed) {
             
-                fetch(`http://localhost:5500/delete/${id}`,{
+                fetch(`https://aura-serverside.vercel.app/delete/${id}`,{
                     method:"DELETE"
                 })
                 .then(res=>res.json())
@@ -79,7 +79,7 @@ const Myart =({art, setArts, arts})=>{
 
 
     return(
-        <div data-aos="fade-up" className='p-5 rounded-xl bg-gray-100 '>
+        <div data-aos="fade-up" className='p-5 rounded-xl bg-gray-100 lg:mb-0 mb-3'>
             <img className='h-[300px] w-full rounded-2xl' src={art.imageurl} alt="" />
             <div>
                 <p className='dancing-script-font text-2xl my-2'>{art.name}</p>

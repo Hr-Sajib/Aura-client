@@ -32,7 +32,7 @@ const Categories = ({categories}) => {
 
 
 
-    fetch('http://localhost:5500/postCategories',{
+    fetch('https://aura-serverside.vercel.app/postCategories',{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -52,7 +52,7 @@ const Categories = ({categories}) => {
     return (
         <div >
             
-                <div className="grid grid-cols-4 mx-28 gap-5">
+                <div className="lg:grid grid-cols-4 lg:mx-28 mx-2 gap-5">
                     {
                         categories.map(category => <Category key={category._id} category={category}></Category>)
                     }
@@ -76,7 +76,7 @@ const Category =({category})=>{
 
     return(
         <Link to={`categoryItems/${category.name}`}>
-            <div className="border p-5 rounded-xl">
+            <div className="border p-5 rounded-xl lg:mb-0 mb-2">
                 <img className="h-56 w-full rounded-xl mb-4" src={category.categoryImage} alt="" />
                 <p>{category.name}</p>
             </div>

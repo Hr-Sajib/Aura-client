@@ -33,7 +33,7 @@ const AddArt = () => {
 
 
         // send data to server
-        fetch('http://localhost:5500/addart',{
+        fetch('https://aura-serverside.vercel.app/addart',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
@@ -59,9 +59,9 @@ const AddArt = () => {
     }
 
     return (
-        <div className='bg-gray-100 h-[700px] flex flex-col justify-center px-24 animate__animated animate__fadeInUp'>
+        <div className='bg-gray-100 lg:h-[700px] flex flex-col justify-center lg:px-24 mb-20  lg:p-0 p-2 lg:mt-0 lg:mt-28 animate__animated animate__fadeInUp'>
             <form onSubmit={handleSubmit}>
-                <div className='flex gap-24 '>
+                <div className='lg:flex gap-24 '>
                     <div className='w-[600px] animate__animated animate__fadeInLeft'>
                         <input type="text" name="name" placeholder='Name of Artwork' className='bg-gray-100 h-12 border-b-[1px] border-black w-full' /> <br /><br />
                         <input type="text" name="category" placeholder='Category '   className='bg-gray-100 h-12 border-b-[1px] border-black w-full' /> <br /><br />
