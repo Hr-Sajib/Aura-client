@@ -28,7 +28,7 @@ const Banner = () => {
                     <div className="lg:flex">
                         <div>
                             <p className=" lg:text-[120px] text-5xl text-white"><b className="lg:text-[200px]">T</b>he World of</p>
-                            <p className=" text-right lg:text-3xl relative ">Colors and Imaginations</p>
+                            <p className=" text-right lg:text-3xl relative ">Colors and Imagination</p>
                         </div>
                         <img className="h-[150px] lg:h-[300px] -rotate-90 relative lg:top-10  bottom-5 lg:left-10 left-20 animate__animated animate__zoomIn" src="https://i.ibb.co/KXdtQch/1714125736956.png" alt="" />
                     </div>
