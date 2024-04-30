@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext } from "react";
 import { useEffect } from "react";
-import { LuCurrency } from "react-icons/lu";
 
 
 export const AuthContext = createContext(null);
@@ -12,16 +11,19 @@ export const AuthContext = createContext(null);
 const Authprovider = ({children}) => {
 
     const [user, setUser] = useState(null);
+    const [loader, setLoader] = useState(true);
 
 
     // sign up
     const createUser=(auth, email, password)=>{
+       setLoader(true);
        return createUserWithEmailAndPassword(auth, email, password)
     }
 
 
     //login
     const loginUser=(auth, email, password)=>{
+        setLoader(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -31,6 +33,7 @@ const Authprovider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser);
             console.log(currentUser);
+            setLoader(false);
         })
         return()=>{
             unsubscribe();
@@ -39,6 +42,7 @@ const Authprovider = ({children}) => {
 
     //log out
     const logOut =()=>{
+        setLoader(true);
         return signOut(auth);
     }
 
@@ -48,7 +52,8 @@ const Authprovider = ({children}) => {
         user,
         createUser,
         logOut,
-        loginUser
+        loginUser,
+        loader,
 
     }
 

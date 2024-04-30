@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { PiStarFill } from "react-icons/pi";
 import 'animate.css';
 
@@ -6,6 +6,12 @@ import 'animate.css';
 const ArtDetails = () => {
 
     const art = useLoaderData();
+
+    const navigate = useNavigate();
+
+    const handleBack=()=>{
+        navigate(-1);
+    }
 
 
     return (
@@ -40,6 +46,9 @@ const ArtDetails = () => {
                     <p>Username : {art.userName}</p>
                     <p>Username : {art.userEmail}</p>
                 </div>
+            </div>
+            <div className='flex items-end h-full '>
+                <button onClick={handleBack} className='bg-black hover:bg-gray-700 rounded-xl h-10 px-10 py-2 text-gray-200'>Back</button>
             </div>
         </div>
     );

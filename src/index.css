@@ -13,8 +13,11 @@ textarea:focus{
 
 
 
+.dark-mode-body{
+  background-color: black;
+  color: aliceblue;
 
-
+}
 
 
 .poppins-thin {

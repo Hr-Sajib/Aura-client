@@ -41,7 +41,7 @@ const Navbar = () => {
                         {navlinks}
                     </ul>
                     </div>
-                    <div onClick={()=>navigate('/')}><a className="btn btn-ghost text-3xl">Aura</a></div>
+                    <div onClick={()=>navigate('/')}><p className="btn btn-ghost text-3xl relative top-1">Aura</p></div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

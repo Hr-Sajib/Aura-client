@@ -8,8 +8,9 @@ const ArtCrafts = () => {
 
 
 
-    const allarts = useLoaderData();
+    const allarts_categories = useLoaderData();
     
+    const allarts = allarts_categories[0];
     
     return (
         <div>
