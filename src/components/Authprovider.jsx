@@ -47,6 +47,13 @@ const Authprovider = ({children}) => {
     }
 
 
+    const [cart, setcart] = useState([]);
+
+    console.log('cart', cart);
+    
+
+
+
 
     const userInfo = {
         user,
@@ -54,6 +61,9 @@ const Authprovider = ({children}) => {
         logOut,
         loginUser,
         loader,
+        cart,
+        setcart
+
 
     }
 

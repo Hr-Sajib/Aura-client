@@ -1,38 +1,50 @@
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import Aos from "aos";
-import { useEffect } from "react";
 import Swal from 'sweetalert2'
-import { useState } from "react";
 
 
 
-const Myarts = () => {
-    
-    const loadedArts = useLoaderData();
+const Admin = () => {
+
+    const [orders, setOrders] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5500/getAllOrders')
+        .then(r=>r.json())
+        .then(data=>{
+            setOrders(data);
+        })
+    },[])
+
+    const loadedArts = useLoaderData()[0];
 
     const [arts, setArts] = useState(loadedArts);
 
-    if(arts.length > 0){
-        return (
-            <div className='lg:grid grid-cols-4 lg:mx-20  items-center justify-center  p-3 gap-3'>
-                {
-                    arts.map(art =><Myart art={art} key={art._id} setArts={setArts} arts={arts}></Myart>)
-                }
-            </div>
-        );
-    }
-    else{
-        return(
-            <div className="text-center mt-10">No Items to Show</div>
-        )
-    }
+    return (
+    <>
+        <div>
+            <p className='text-2xl text-center my-5'>All Orders</p>
+            {
+                orders.map(order=> <Order order={order} key={order._id}></Order>)
+            }
 
+        </div>
+        <div>
+            <p className='text-2xl text-center my-5'>All Arts and Crafts</p>
+        </div>
+        <div className='lg:grid grid-cols-4 lg:mx-20  items-center justify-center  p-3 gap-3'>
+            {
+                arts.map(art =><Myart art={art} key={art._id} setArts={setArts} arts={arts}></Myart>)
+            }
+        </div>
     
+    </>
+    
+    );
 };
 
-export default Myarts;
-
-
+export default Admin;
 
 
 
@@ -43,6 +55,7 @@ const Myart =({art, setArts, arts})=>{
       },[])
 
 
+    //   console.log(art);
     
     //delete handle
     const handleDeleteMyArt=(id)=>{
@@ -87,7 +100,7 @@ const Myart =({art, setArts, arts})=>{
 
 
     return(
-        <div data-aos="fade-up" className='p-5 rounded-xl bg-gray-100 lg:mb-0 mb-3'>
+        <div data-aos="fade-up" className='p-5 rounded-xl bg-blue-100 lg:mb-0 mb-3'>
             <img className='h-[300px] w-full rounded-2xl' src={art.imageurl} alt="" />
             <div>
                 <p className='dancing-script-font text-2xl my-2'>{art.name}</p>
@@ -99,11 +112,25 @@ const Myart =({art, setArts, arts})=>{
                 <p>Customization : <b>{art.customization}</b></p>
                 <p>Processing Time : <b>{art.processingTime}</b></p>
                 <p>Stock Status : <b>{art.stockStatus}</b></p>
+                <p>Added by : <b>{art.userEmail}</b></p>
+                <p className='mt-2 bg-gray-100 p-2 rounded-xl'>Unique ID : <b>{art._id}</b></p>
             </div>
             <div className="flex justify-end gap-1">
                 <button onClick={()=>handleDeleteMyArt(art._id)} className="bg-red-300 text-black px-5 py-2 rounded-xl hover:bg-red-200">X</button>
-                <Link to={`update/${art._id}`}><button className="bg-[#d6d3d1] text-black px-5 py-2 rounded-xl hover:bg-gray-200">Update</button></Link>
             </div>
+        </div>
+    )
+}
+
+
+const Order =({order})=>{
+
+    return(
+        <div className='bg-blue-100 mb-2 rounded-xl p-5 mx-24'>
+            <p>Order ID <span>{order._id}</span></p>
+            <p>Buyer Name <span>{order.buyer}</span></p>
+            <p>Buyer Email <span>{order.buyerEmail}</span></p>
+            <p>Buyer Phone <span>{order.buyerEmail}</span></p>
         </div>
     )
 }

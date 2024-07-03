@@ -15,6 +15,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import axios from "axios";
 
 const SignUp = () => {
 
@@ -100,7 +101,16 @@ const SignUp = () => {
       .then((res) => {
         console.log(res.user);
         toast("Signed in successfully!");
+
+        //user token
+        const user = res.user.email;
+        axios.post('http://localhost:5500/jwt', {user} , {withCredentials:true})
+        .then(res=>{
+          console.log(res.data);
+        })
+
       })
+
       .catch((error) => {
         console.log(error.message);
       });

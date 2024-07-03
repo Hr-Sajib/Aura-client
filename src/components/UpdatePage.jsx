@@ -29,7 +29,7 @@ const UpdatePage = () => {
     
         
         // send updates to server
-        fetch(`https://aura-serverside.vercel.app/update/${art._id}`,{
+        fetch(`http://localhost:5500/update/${art._id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'

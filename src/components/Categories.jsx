@@ -32,7 +32,7 @@ const Categories = ({categories}) => {
 
 
 
-    fetch('https://aura-serverside.vercel.app/postCategories',{
+    fetch('http://localhost:5500/postCategories',{
         method:'POST',
         headers:{
             'content-type':'application/json'

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LuEye, LuEyeOff } from "react-icons/lu";
@@ -24,7 +24,8 @@ import auth from "../firebase/firebase.config";
 
 
 const LogIn = () => {
-
+  const navigate = useNavigate();
+  const location = useLocation();
     
     const {loginUser} = useContext(AuthContext);
 
@@ -43,6 +44,7 @@ const LogIn = () => {
         .then(res => {
         console.log(res.user);
         toast('Logged in successfully!')
+        navigate(location?.state ? location.state : '/');
         
         e.target.email.value = "";
         e.target.password.value = "";
@@ -60,6 +62,7 @@ const LogIn = () => {
       .then((res) => {
         console.log(res.user);
         toast("Signed in successfully!");
+        navigate(location?.state ? location.state : '/');
       })
       .catch((error) => {
         console.log(error.message);
@@ -74,6 +77,7 @@ const LogIn = () => {
       .then((res) => {
         console.log(res.user);
         toast('Signed in successfully!')
+        navigate(location?.state ? location.state : '/');
 
       })
       .catch((error) => {

@@ -8,6 +8,8 @@ import 'aos/dist/aos.css'
 import { useEffect } from "react";
 import Categories from './Categories';
 import TextSection2 from './TextSectoin2';
+import axios from 'axios';
+import { useState } from 'react';
 
 
 
@@ -16,8 +18,13 @@ const Home = () => {
     //load all arts 
     const allarts_categories = useLoaderData();
 
-    const allarts = allarts_categories[0];
-    const categories = allarts_categories[1];
+
+        // console.log(allarts_categories);
+        
+        const allarts = allarts_categories[0];
+        const categories = allarts_categories[1];
+    
+
 
     //slice for crafts section
     const craftarts = allarts.slice(0,6);
@@ -28,10 +35,7 @@ const Home = () => {
 
 
     return (
-        <div className=''>
-                <Banner/>
-                <TextSection1/>
-                <Crafts6_Section sixArts={craftarts}/>
+        <div className=''> <Banner/> <TextSection1/> <Crafts6_Section sixArts={allarts}/>
                         
                 <TextSection2/>
                 <Categories categories={categories}/>

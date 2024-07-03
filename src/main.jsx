@@ -20,6 +20,9 @@ import UpdatePage from './components/UpdatePage.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import CategoryItems from './components/CategoryItems.jsx';
+import Admin from './components/Admin.jsx';
+import CartPage from './components/CartPage.jsx';
+
 
 
 
@@ -37,11 +40,11 @@ const router = createBrowserRouter([
         path:'/',
         element: <Home/>,
         errorElement:<ErrorPage/>,
-        loader: ()=>fetch('https://aura-serverside.vercel.app/getarts')
+        loader: ()=>fetch('http://localhost:5500/getarts')
       },
       {
         path:'/art&crafts',
-        loader: ()=>fetch('https://aura-serverside.vercel.app/getarts'),
+        loader: ()=>fetch('http://localhost:5500/getarts'),
         errorElement:<ErrorPage/>,
         element: <ArtCrafts/>
         
@@ -52,19 +55,30 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AddArt/></PrivateRoute>
       },
 
-
+      {
+        path:'/admin',
+        errorElement:<ErrorPage/>,
+        element: <PrivateRoute><Admin/></PrivateRoute>,
+        loader: ()=>fetch('http://localhost:5500/getarts')
+      },
+      {
+        path:'/cart',
+        errorElement:<ErrorPage/>,
+        element: <PrivateRoute><CartPage/></PrivateRoute>,
+        loader: ()=>fetch('http://localhost:5500/getarts')
+      },
 
 
       {
         path:'/myarts/:email',
         errorElement:<ErrorPage/>,
-        loader:({params})=> fetch(`https://aura-serverside.vercel.app/getMyArts/${params.email}`),
+        loader:({params})=> fetch(`http://localhost:5500/getMyArts/${params.email}`),
         element:  <PrivateRoute><Myarts/></PrivateRoute>
       },
       {
         path:'/myarts/:email/update/:id',
         errorElement:<ErrorPage/>,
-        loader:({params})=> fetch(`https://aura-serverside.vercel.app/getart/${params.id}`),
+        loader:({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
         element: <PrivateRoute><UpdatePage/></PrivateRoute>
       },
 
@@ -88,13 +102,13 @@ const router = createBrowserRouter([
       {
         path:'/art/:id',
         errorElement:<ErrorPage/>,
-        loader: ({params})=> fetch(`https://aura-serverside.vercel.app/getart/${params.id}`),
+        loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
         element: <ArtDetails/>
       },
       {
         path:'/art&crafts/art/:id',
         errorElement:<ErrorPage/>,
-        loader: ({params})=> fetch(`https://aura-serverside.vercel.app/getart/${params.id}`),
+        loader: ({params})=> fetch(`http://localhost:5500/getart/${params.id}`),
         element: <ArtDetails/>
       },
 
@@ -102,12 +116,12 @@ const router = createBrowserRouter([
       {
         path:'/categoryItems/:categoryName',
         errorElement:<ErrorPage/>,
-        loader: ()=>fetch('https://aura-serverside.vercel.app/getarts'),
+        loader: ()=>fetch('http://localhost:5500/getarts'),
         element: <CategoryItems/>
       },
 
       
-    ]
+    ] 
   },
 ]);
 
